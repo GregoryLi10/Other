@@ -1,4 +1,4 @@
-package Algs;
+package Other;
 
 import java.util.ArrayList;
 import java.util.Arrays;
