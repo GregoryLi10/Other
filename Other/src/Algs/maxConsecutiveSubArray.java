@@ -34,6 +34,13 @@ public class maxConsecutiveSubArray {
 		Object[] temp={"sum: "+max, "subarray: "+temp1};
 		return temp;
 	}
+	/* max=arr[0]
+	 * for each int in array
+	 * 	start new curr if int is bigger than curr
+	 * 	else curr+=int
+	 * 	if curr bigger than max max = curr
+	 * return max
+	 */
 	
 	public static void main (String[] args) {
 		System.out.println(Arrays.toString(kindoflinear(new int[] {-13, -39, -17, -10, 11, 32, 1, 6, -24, -10, 34, -23, -33, 7, 22, 37, -15, 23, -36, 38, 16, -10, -24, -48, -1, -26, 14, 9, 46, 42, 32, -4, -43, 17, 31, -40, 43, -11, -14, -23, -33, -8, -44, 7, -37, 21, -22, 8, -27, -45})));
