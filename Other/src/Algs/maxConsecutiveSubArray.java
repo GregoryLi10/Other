@@ -15,7 +15,7 @@ public class maxConsecutiveSubArray {
 		ArrayList<Integer> temp2=new ArrayList<Integer>();
 		int max=arr[0], curr=arr[0];
 		temp1.add(arr[0]);
-		for (int i=0; i<arr.length; i++) {
+		for (int i=1; i<arr.length; i++) {
 			if (arr[i]>curr+arr[i]) {
 				curr=arr[i];
 				temp2=new ArrayList<Integer>();
@@ -31,9 +31,7 @@ public class maxConsecutiveSubArray {
 				temp1.addAll(temp2);
 			}
 		}
-		Object[] temp=new Object[2];
-		temp[0]="sum: "+max;
-		temp[1]="subarray: "+temp1;
+		Object[] temp={"sum: "+max, "subarray: "+temp1};
 		return temp;
 	}
 	
