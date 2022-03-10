@@ -2,15 +2,13 @@
  * Miller-Rabin's Primality Test 
  * 
  * Sieve of Eratosthenes: the first ever way to find prime numbers
- * it has a run time of O(n) where it runs from 2 to sqrt of n
+ * it has a run time of O(sqrt(n)) or just O(n) where it runs through all primes from 2 to sqrt of n 
+ * (essentially testing if every number is prime and "crossing it out")
  * it is the most efficient method for numbers below 10 million
  * 
- * Miller-Rabin's method runs in O(k(log(n))) where k is the number of iterations
+ * Miller-Rabin's method runs in O(k(log(n))) or just O(log(n)) where k is the number of iterations
  * the first iteration will give a 3/4 chance of being correct, every iteration will increase the likelihood exponentially
  */
-
-import java.io.*;
-import java.math.*;
 
 public class PrimalityTest {
     static int power(int x, int y, int p) {
@@ -20,7 +18,7 @@ public class PrimalityTest {
         //Update x if it is more than or
         // equal to p
         x = x % p;
- 
+        System.out.println(x+" "+y+" "+p);
         while (y > 0) {
              
             // If y is odd, multiply x with result
@@ -31,7 +29,7 @@ public class PrimalityTest {
             y = y >> 1; // y = y/2
             x = (x * x) % p;
         }
-         
+        System.out.println(res);
         return res;
     }
      
@@ -77,7 +75,6 @@ public class PrimalityTest {
     // determines accuracy level. Higher
     // value of k indicates more accuracy.
     static boolean isPrime(int n, int k) {
-         
         // Corner cases
         if (n <= 1 || n == 4) return false;
         if (n <= 3) return true;
@@ -87,7 +84,6 @@ public class PrimalityTest {
          
         while (d % 2 == 0)
             d /= 2;
-     
         // Iterate given number of 'k' times
         for (int i = 0; i < k; i++)
             if (!miillerTest(d, n))
@@ -98,12 +94,12 @@ public class PrimalityTest {
     
     public static void main(String args[]) {
          
-        int k = 4; // Number of iterations, each iteration is 3/4 more accurate
-        System.out.println(isPrime(5,k));
+        int k = 5; // Number of iterations, each iteration is 3/4 more accurate
+        System.out.println(isPrime(70001,k));
+        
         //primes less than n
-//        for (int n = 1; n < 100; n++)
-//            if (isPrime(n, k))
-//                System.out.print(n + " ");
+//        for (int n = 70000; n < 100000; n++)
+//            if (isPrime(n, k)) System.out.print(n + " ");
     }
 }
 
